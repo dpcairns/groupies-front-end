@@ -14,6 +14,7 @@ export default class SavedItem extends Component {
                 
                 <div className="saved-list">
                 <h1>{this.props.concert.name}</h1>
+                // why not manage these styles in the css?
                 <img src={this.props.concert.images} style={{width: "125px", height:"100px"}} alt="" className="concert-images"/>
                 <h3>{this.props.concert.city}, {this.props.concert.state}</h3>
                 </div>

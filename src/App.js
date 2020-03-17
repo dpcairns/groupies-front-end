@@ -28,6 +28,7 @@ export default class App extends React.Component {
             <Fragment>
               <Route exact path="/signup" component={SignUp} />
               <Header />
+              // this should be managed in css
               <div style={{width: '100%', height: '75px' }} ></div>
               <Footer />
               <Route exact path="/saved" component={Saved} />

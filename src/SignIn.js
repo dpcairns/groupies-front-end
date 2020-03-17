@@ -18,10 +18,12 @@ export default class SignIn extends Component {
         if(!this.state.loading){
             this.setState({loading: true})
             await request
+            // this call should probably live in api.js
                 .post(`https://vast-ravine-67223.herokuapp.com/api/auth/signin`, {
                 email: this.state.usernameSignIn,
                 password: this.state.passwordSignIn,
                 })
+                // why not use async/await here?
                 .then(signIn => {
                     localStorage.setItem('user', JSON.stringify(signIn.body));
                     this.props.history.push('/concerts');

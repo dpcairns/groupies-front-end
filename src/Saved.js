@@ -28,6 +28,7 @@ export default class Saved extends Component {
     handleDelete = async(concert) => {
         const user = JSON.parse(localStorage.getItem('user'))
         console.log(concert)
+        // this call should probably live in api.js
         const data = await request.delete(`https://vast-ravine-67223.herokuapp.com/api/me/saved/${concert.id}`).set('Authorization', user.token)
         await this.loadData()
     }

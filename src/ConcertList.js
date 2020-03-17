@@ -42,30 +42,19 @@ export default class ConcertList extends Component {
             if (this.state.user) {
                 this.setState({searchCity: this.state.user.city_name})
                 const data = await getSaved();
-            if(data.body) {
-                this.setState({
-                        saved: data.body,
-                    } )
-                } else {
-                    this.setState({ saved: [] })
-                }
+
+                this.setState({ saved: data.body || [] })
             } 
-            // else {
-            //     this.setState({userNotLoggedIn: true})
-            // }
     }
     handleSearch = async (e) => {
         e.preventDefault();
         const data = await getConcerts(this.state.searchQuery, this.state.searchCity);
-        // console.log(data);
-        if(data.body._embedded) {
-        this.setState({
-                concerts: JSON.parse(data.text)._embedded.events,
-            })
-        } else {
-            this.setState({ concerts: [] })
-        }
-        // this.props.history.push(this.state.searchQuery)
+
+        this.setState({ 
+            concerts: data.body._embedded 
+                ? JSON.parse(data.text)._embedded.events 
+                : [] 
+        })
     }
     handleChange = (e) => this.setState({ searchQuery: e.target.value })
 
@@ -82,9 +71,9 @@ export default class ConcertList extends Component {
     
             this.setState({loadingFav: true})
             const button = e.target;
+            // this dom manipulation should be done declaratively through react and state, not imperatively
             button.classList.add('lds-ellipsis');
             console.log(saved_id);
-            // try {
             
             const saved = {
                 tm_id: concert.id,
@@ -115,9 +104,7 @@ export default class ConcertList extends Component {
                     this.setState({ saved: [] })
                 }
             }
-        // } catch (e) {
-        //     console.log('||||||||error', e)
-        // }
+        // this dom manipulation should be done declaratively through react and state, not imperatively
         button.classList.remove('lds-ellipsis');
         this.setState({loadingFav: false})
     }
@@ -139,7 +126,6 @@ export default class ConcertList extends Component {
                     searchCity={this.state.searchCity}
                     />
                 </div>
-                {/* {this.state.userNotLoggedIn && <SignUpModal />} */}
                 <ul id='concert-list'>
                 { this.state.concerts &&
                         this.state.concerts.map(concert =>

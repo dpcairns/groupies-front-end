@@ -10,6 +10,7 @@ export default class AboutUs extends Component {
         return (
             <div id="about-us-container">
                 <div>
+                // would have liked to see a json blob with all this data, then map over it to render the html
                     <div className="aboutus">
                     {/* <h1>The Groupies</h1> */}
                     <ul className="groupies-card">
@@ -59,7 +60,6 @@ export default class AboutUs extends Component {
                                 </div>
                         </li>
                     </ul>
-                    {/* <Link id='concert-link' to="/concerts">Back to concerts</Link> */}
                     </div>
                 </div>
             </div>

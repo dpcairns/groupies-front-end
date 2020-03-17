@@ -15,7 +15,7 @@ export default class SearchBar extends Component {
                         placeholder="City"
                         value={this.props.searchCity}
                         onChange={this.props.handleCity}
-                        onFocus={e => e.target.select()} 
+                        onFocus={e => e.target.select()} // is this necessary?
                     /><br />
                     <button id="search-bar-button">Search</button>
                     

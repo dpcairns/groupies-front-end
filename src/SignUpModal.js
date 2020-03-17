@@ -1,3 +1,4 @@
+// is this file used? if not, it should be deleted, or else it will confuse future developers
 import React, { Component } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
@@ -5,6 +6,7 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 
 export function SignUpModal(props) {
     return (
+    // nice reaching for a library!
     <Modal
         {...props}
         size="lg"

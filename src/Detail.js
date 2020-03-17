@@ -42,8 +42,6 @@ export default class Detail extends Component {
         const {concert}=this.state;
         if(!this.state.loadingFav){
             this.setState({loadingFav: true})
-            const button = e.target;
-            // button.classList.add('lds-ellipsis');
             console.log(saved_id);
             try {
             const saved = {
@@ -76,7 +74,6 @@ export default class Detail extends Component {
         } catch {
         }
         
-        // button.classList.remove('lds-ellipsis');
         this.setState({loadingFav: false})
     }}
     render() {

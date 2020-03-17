@@ -24,8 +24,14 @@ export default class ConcertData extends Component {
                 <h3>{this.props.concert._embedded.venues[0].city.name}, {this.props.concert._embedded.venues[0].state.name}</h3>
                 </div>
                 </Link>
+                // for readability, this should probably happen above the return statment
                 <span className={this.props.saved.findIndex(el => el.tm_id === this.props.concert.id) !== -1 ? 'saved' : ''} 
-                    onClick={ (e) => {this.props.handleSaved(this.props.concert, this.props.saved.findIndex(el => el.tm_id === this.props.concert.id), e)}}>♫<div></div><div></div><div></div><div></div></span>
+                    onClick={ (e) => {
+                        // this is too much for an inline, anonymous function
+                        this.props.handleSaved(
+                            this.props.concert, 
+                            this.props.saved.findIndex(el => el.tm_id === this.props.concert.id), 
+                            e)}}>♫<div></div><div></div><div></div><div></div></span>
                 
             </li>
         )
